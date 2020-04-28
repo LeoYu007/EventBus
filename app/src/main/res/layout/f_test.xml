@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发送字符串消息到Fragment_2" />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发送数字消息到Fragment_2" />
+
+    <Button
+        android:id="@+id/btn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发送无参数消息到Fragment_2" />
+
+    <Button
+        android:id="@+id/btnSticky"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发送粘性无参消息" />
+
+    <Button
+        android:id="@+id/btnSticky2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发送粘性字符串消息" />
+</LinearLayout>

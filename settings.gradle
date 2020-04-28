@@ -1,0 +1,5 @@
+rootProject.name='EventBus'
+include ':app'
+include ':bus-annotation'
+include ':bus-compiler'
+include ':bus-core'
