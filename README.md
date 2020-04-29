@@ -2,7 +2,7 @@
 
 * 使用方式
 ```java
- // 初始化
+ // Application中初始化
  XBus.init()
 
  // 注册
@@ -12,7 +12,7 @@
 
  // 注解标记接收消息的方法，注意必须为public的方法，并且最多只能有一个参数或者没有参数
  @Subscribe(tag = BusTags.TAG_NO_ARG)
- fun test(){
+ public void test(){
    // do something
  }
 
@@ -29,7 +29,8 @@
 ```
 * 也可以使用注解自动生成的BusManager，好处是可以方便的追踪消息在哪里被订阅
 ```java
-   // 每个tag都在BusManager中生成一个方法，代码如下：可以直接点击注释的链接跳转目标方法
+   // 每个tag都在BusManager中生成一个方法，代码如下：
+   // 可以直接点击注释的链接跳转目标方法
 
   /**
    * 订阅的方法：{@link com.pretty.eventbus.sample.TestFragment2#test1}
@@ -41,5 +42,5 @@
 ```
 
 ## 感谢
-核心代码来自：[Blankj/AndroidUtilCode](https://github.com/Blankj/AndroidUtilCode) 的 BusUtils。
+核心代码参考：[Blankj/AndroidUtilCode](https://github.com/Blankj/AndroidUtilCode) 的 BusUtils。
 原库基于ASM字节码插桩技术插入初始化代码，我简单修改了一下，把核心代码剥离出来，改成用APT生成代码，在init中反射调用来完成。
