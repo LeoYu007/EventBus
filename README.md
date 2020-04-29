@@ -1,6 +1,22 @@
 ## 基于编译时注解的EventBus，相比于RxBus，它不依赖于RxJava，更加轻量。相比于Greenrobot的EventBus，它代码更少，少量使用反射，效率更高。
 
 * 使用方式
+1. 添加依赖
+```java
+    allprojects {
+    		repositories {
+    			...
+    			maven { url 'https://jitpack.io' }
+    		}
+    }
+
+	dependencies {
+	        implementation 'com.github.yu1tiao:EventBus:1.0.1'
+	        annotationProcessor 'com.github.yu1tiao.EventBus:bus-compiler:1.0.1'
+	}
+
+```
+
 ```java
  // Application中初始化
  XBus.init()
