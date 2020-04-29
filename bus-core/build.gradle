@@ -30,5 +30,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api project(":bus-annotation")
+    implementation 'androidx.appcompat:appcompat:1.1.0'
 }
 

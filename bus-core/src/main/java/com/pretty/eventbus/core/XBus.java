@@ -20,7 +20,7 @@ public class XBus {
 
     public static void init() {
         try {
-            Class<?> aClass = Class.forName("com.pretty.eventbus.BusRegisterImpl");
+            Class<?> aClass = Class.forName("com.pretty.eventbus.core.BusRegisterImpl");
             Object o = aClass.newInstance();
             Method method = aClass.getDeclaredMethod("registerEvent");
             method.setAccessible(true);
@@ -67,6 +67,10 @@ public class XBus {
 
     public static void removeSticky(final String tag) {
         BusImpl.getInstance().removeSticky(tag);
+    }
+
+    public static void removeStickyByClass(final Class<?> clazz) {
+        BusImpl.getInstance().removeStickyByClass(clazz);
     }
 
 }

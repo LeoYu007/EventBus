@@ -98,7 +98,7 @@ public class EventBusProcessor extends AbstractProcessor {
 
         try {
             // build com.pretty.eventbus.BusRegisterImpl.java
-            JavaFile javaFile = JavaFile.builder("com.pretty.eventbus", registerImpl)
+            JavaFile javaFile = JavaFile.builder("com.pretty.eventbus.core", registerImpl)
                     .addFileComment(" This codes are generated automatically. Do not modify!")
                     .build();
             // write to file
@@ -125,7 +125,7 @@ public class EventBusProcessor extends AbstractProcessor {
         }
 
         // 生成BusManager
-        JavaFile busManagerFile = JavaFile.builder("com.pretty.eventbus", busManager.build())
+        JavaFile busManagerFile = JavaFile.builder("com.pretty.eventbus.core", busManager.build())
                 .addFileComment(" This codes are generated automatically. Do not modify!")
                 .build();
 

@@ -9,10 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.pretty.eventbus.BusManager
 import com.pretty.eventbus.anno.Subscribe
 import com.pretty.eventbus.anno.ThreadMode
-import com.pretty.eventbus.core.XBus
+import com.pretty.eventbus.core.BusAutoRegister
+import com.pretty.eventbus.core.BusManager
 import kotlinx.android.synthetic.main.f_test.*
 
 class TestFragment : Fragment() {
@@ -21,12 +21,7 @@ class TestFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        XBus.register(this)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        XBus.unregister(this)
+        BusAutoRegister.initWith(this)
     }
 
     override fun onCreateView(

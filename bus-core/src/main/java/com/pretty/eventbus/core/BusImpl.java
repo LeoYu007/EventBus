@@ -37,8 +37,8 @@ public class BusImpl implements IBus {
         return LazyHolder.INSTANCE;
     }
 
-    public void registerBus(String tag, String className, String funName, String paramType,
-                            String paramName, boolean sticky, String threadMode, int priority) {
+    void registerBus(String tag, String className, String funName, String paramType,
+                     String paramName, boolean sticky, String threadMode, int priority) {
         List<SubscriberMethod> methodInfoList = mTag_MethodInfoListMap.get(tag);
         if (methodInfoList == null) {
             methodInfoList = new ArrayList<>();
@@ -58,7 +58,6 @@ public class BusImpl implements IBus {
     public void postSticky(String tag) {
         postSticky(tag, NULL);
     }
-
 
     @Override
     public void register(final Object obj) {
@@ -264,6 +263,17 @@ public class BusImpl implements IBus {
                 tagArgMap.put(tag, arg);
             }
             post(tag, arg, true);
+        }
+    }
+
+    @Override
+    public void removeStickyByClass(final Class<?> clazz) {
+        String className = clazz.getName();
+        synchronized (mClassName_Tag_Arg4StickyMap) {
+            Map<String, Object> tagArgMap = mClassName_Tag_Arg4StickyMap.get(className);
+            if (tagArgMap != null) {
+                tagArgMap.clear();
+            }
         }
     }
 

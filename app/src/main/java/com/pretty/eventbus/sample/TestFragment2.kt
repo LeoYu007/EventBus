@@ -1,26 +1,19 @@
 package com.pretty.eventbus.sample
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.pretty.eventbus.anno.Subscribe
-import com.pretty.eventbus.core.XBus
+import com.pretty.eventbus.core.BusAutoRegister
 import kotlinx.android.synthetic.main.f_test_2.*
 
 class TestFragment2 : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        XBus.register(this)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        XBus.unregister(this)
+        BusAutoRegister.initWith(this)
     }
 
     override fun onCreateView(

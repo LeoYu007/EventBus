@@ -2,8 +2,8 @@ package com.pretty.eventbus.sample
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.pretty.eventbus.anno.Subscribe
+import com.pretty.eventbus.core.BusAutoRegister
 import com.pretty.eventbus.core.XBus
 import kotlinx.android.synthetic.main.a_test_sticky.btn
 import kotlinx.android.synthetic.main.a_test_sticky.tv
@@ -14,7 +14,7 @@ class TestStickyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.a_test_sticky)
 
-        XBus.register(this)
+        BusAutoRegister.initWith(this)
 
         btn.setOnClickListener {
             XBus.post(BusTags.TAG_NO_ARG)
@@ -31,10 +31,4 @@ class TestStickyActivity : AppCompatActivity() {
         tv.text = "收到无参数粘性消息:${System.currentTimeMillis() / 1000}"
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        XBus.removeSticky(BusTags.TAG_STICKY_MSG)
-        XBus.removeSticky(BusTags.TAG_STICKY_NO_ARG)
-        XBus.unregister(this)
-    }
 }

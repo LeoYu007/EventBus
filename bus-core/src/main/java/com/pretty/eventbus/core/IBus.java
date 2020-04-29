@@ -15,4 +15,6 @@ public interface IBus {
     void postSticky(final String tag, final Object arg);
 
     void removeSticky(final String tag);
+
+    void removeStickyByClass(final Class<?> clazz);
 }
