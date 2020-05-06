@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.pretty.eventbus.anno.Subscribe
+import com.pretty.eventbus.anno.ThreadMode
 import com.pretty.eventbus.core.BusAutoRegister
 import kotlinx.android.synthetic.main.f_test_2.*
 
@@ -37,5 +39,10 @@ class TestFragment2 : Fragment() {
     @Subscribe(tag = BusTags.TAG_NO_ARG)
     fun testNoParam() {
         tv.text = "收到无参数消息: ${System.currentTimeMillis() / 1000}"
+    }
+
+    @Subscribe(tag = BusTags.TAG_FROM_ACTIVITY, threadMode = ThreadMode.MAIN)
+    fun testNoParam(message: String) {
+        Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
     }
 }

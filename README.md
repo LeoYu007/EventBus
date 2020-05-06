@@ -11,8 +11,8 @@
     }
 
 	dependencies {
-	        implementation 'com.github.yu1tiao:EventBus:1.0.2'
-	        annotationProcessor 'com.github.yu1tiao.EventBus:bus-compiler:1.0.2'
+	        implementation 'com.github.yu1tiao:EventBus:1.0.3'
+	        annotationProcessor 'com.github.yu1tiao.EventBus:bus-compiler:1.0.3'
 	}
 
 ```

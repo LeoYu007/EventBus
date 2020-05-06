@@ -63,18 +63,11 @@ class TestFragment : Fragment() {
     }
 
     private fun startTestAty() {
-        handler.postDelayed({
-            startActivity(Intent(activity, TestStickyActivity::class.java))
-        }, 1000)
+        startActivity(Intent(activity, TestStickyActivity::class.java))
     }
 
-
-    @Subscribe(tag = BusTags.TAG_NO_ARG, threadMode = ThreadMode.MAIN)
-    fun testNoParam() {
-        Toast.makeText(
-            activity,
-            "fragment_1: ${System.currentTimeMillis() / 1000}",
-            Toast.LENGTH_SHORT
-        ).show()
+    @Subscribe(tag = BusTags.TAG_FROM_ACTIVITY, threadMode = ThreadMode.MAIN)
+    fun testNoParam(message: String) {
+        Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
     }
 }

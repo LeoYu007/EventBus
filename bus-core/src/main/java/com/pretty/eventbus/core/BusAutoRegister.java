@@ -2,6 +2,8 @@ package com.pretty.eventbus.core;
 
 import android.util.Log;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -19,8 +21,15 @@ public class BusAutoRegister implements LifecycleObserver {
         Log.i("Bus", owner.toString() + ": 注销了XBus");
     }
 
-    public static void initWith(LifecycleOwner lifecycleOwner) {
-        XBus.register(lifecycleOwner);
-        lifecycleOwner.getLifecycle().addObserver(new BusAutoRegister());
+    public static void initWith(AppCompatActivity activity) {
+        XBus.register(activity);
+        activity.getLifecycle().addObserver(new BusAutoRegister());
+        Log.i("Bus", activity.toString() + ": 注册了XBus");
+    }
+
+    public static void initWith(Fragment fragment) {
+        XBus.register(fragment);
+        fragment.getLifecycle().addObserver(new BusAutoRegister());
+        Log.i("Bus", fragment.toString() + ": 注册了XBus");
     }
 }

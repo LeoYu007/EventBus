@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.pretty.eventbus.anno.Subscribe
 import com.pretty.eventbus.core.BusAutoRegister
+import com.pretty.eventbus.core.BusManager
 import com.pretty.eventbus.core.XBus
 import kotlinx.android.synthetic.main.a_test_sticky.btn
 import kotlinx.android.synthetic.main.a_test_sticky.tv
@@ -17,7 +18,7 @@ class TestStickyActivity : AppCompatActivity() {
         BusAutoRegister.initWith(this)
 
         btn.setOnClickListener {
-            XBus.post(BusTags.TAG_NO_ARG)
+            XBus.post(BusTags.TAG_FROM_ACTIVITY, "我是来自TestStickyActivity的消息！")
         }
     }
 
